@@ -1,0 +1,127 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Consolas;\f2\fnil\fcharset0 Menlo-Regular;
+\f3\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red38\green38\blue38;\red245\green245\blue245;\red188\green188\blue188;
+\red29\green29\blue29;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid2\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww16920\viewh10900\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b\fs36 \cf0 Config your user name and password:\
+
+\b0 git config --global user.name \'93Your user name\'94\
+git config --global user.email \'93youremail@me.com\'94\
+\
+
+\b Create a repository in the current folder:
+\b0 \
+git init\
+\
+
+\b Track all the files in the folder
+\b0 \
+git add -A
+\b \
+\
+Check the status of the files\
+
+\b0 git status\
+\
+
+\b Commit the changes\
+
+\b0 git commit -m \'93Initial commit\'94\
+\
+
+\b Checkout all the changed files\
+
+\b0 git checkout -f\
+\
+
+\b Create a new branch (called create-users on this example)
+\b0 \
+git checkout -b \'91create-users\'92 \
+\
+
+\b Show all branches\
+
+\b0 git branch\
+\
+
+\b Change the branch:
+\b0 \
+git checkout <name of the branch>\
+like: git checkout master\
+\
+
+\b After finishing your work at a given branch, you need to merge it to master branch\
+
+\b0 git checkout master\
+git merge create-users\
+\
+
+\b To delete a branch:\
+
+\b0 git branch -d <name of the branch>\
+\
+
+\b Undo the last commit:
+\b0 \
+git reset HEAD~ \
+\
+
+\b Check git configurations
+\b0 \
+git config -l\
+\
+
+\b Throw away local changes (if you deleted or changed something for example)
+\b0 \
+git checkout -f \
+\
+
+\b Git Hub Setup
+\b0 \
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	1.	}cat ~/.ssh/id_rsa.pub\
+\pard\tx940\tx1440\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}This will display your public ssh key.\
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	2.	}Now go to github.com and under setting, go to SSH Keys. Then paste your public key there.\
+{\listtext	3.	}Create a new repository in your github.\
+{\listtext	4.	}Then click on the SSH option, and follow the instructions to push your code. Example:\
+\pard\tx940\tx1440\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\f1\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+git remote add origin git@github.com:fscarpin/alpha_blog.git\
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0
+\f0\fs36 \cf0 \cb1 \kerning1\expnd0\expndtw0 {\listtext	5.	}Now test if it was added correctly: git remote -v\
+{\listtext	6.	}Now push your code to the github repository:\
+\pard\tx940\tx1440\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\f1\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+git push -u origin master
+\f0\fs36 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+*****\
+
+\b Ignore files
+\b0 \
+If you need to ignore some file, just add it to the .gitignore file \
+\
+*to production\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs28 \cf4 \cb5 \CocoaLigature0 git push heroku master\
+heroku run rake db:migrate\
+
+\f0\fs36 \cf0 \cb1 \CocoaLigature1 \
+heroku drop database\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f3\fs28 \cf4 \cb5 \CocoaLigature0 heroku pg:reset DATABASE_URL}

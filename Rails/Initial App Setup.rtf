@@ -1,0 +1,87 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red0\green68\blue254;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww13600\viewh12900\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b\fs36 \cf2 Initial App Setup: Gemfile
+\b0\fs28 \cf0 \
+# Authentication gem\
+gem 'devise'\
+\
+# Bootstrap\
+gem 'twitter-bootstrap-rails'\
+\
+# Bootstrap for devise\
+gem 'devise-bootstrap-views'\
+\
+
+\b On DEV group:
+\b0 \
+Move sqlite3 to dev and test\
+# Use sqlite3 as the database for Active Record\
+gem 'sqlite3'\
+\
+# Call 'byebug' anywhere in the code to stop execution and get a debugger console\
+gem 'byebug'\
+\
+# A more elegant debugging tool (with colors!). Just add binding.pry to your code to create a breakpoint\
+gem 'pry-byebug'\
+\
+\
+
+\b\fs36 \cf2 Install the gems:
+\b0\fs28 \cf0 \
+bundle install --without production\
+\
+\
+
+\b\fs36 \cf2 Install devise:
+\b0\fs28 \cf0 \
+rails generate devise:install\
+rails generate devise User\
+\
+\
+
+\b If you want the email confirmation before users sign up:
+\b0 \
+Pull up the migration file that just got created and uncomment the 4 lines under confirmable:\
+t.string :confirmation_token\
+t.datetime :confirmed_at\
+t.datetime :confirmation_sent_at\
+t.string :unconfirmed_email\
+\
+Pull up the user.rb model file under app/models and in the line for devise, add in a:\
+:confirmable,\
+\
+\
+
+\b\fs36 \cf2 Run the migration to create the tables
+\b0\fs28 \cf0 \
+rake db:migrate\
+\
+\
+
+\b\fs36 \cf2 To restrict access to the system 
+\b0\fs28 \cf0 \
+In your application_controller.rb file under app/controllers add in:\
+before_action :authenticate_user!\
+\
+
+\b To allow an action to be performed without an authenticated user
+\b0 \
+In your welcome_controller.rb file add in:\
+skip_before_action :authenticate_user!, only: [:index]\
+\
+
+\b\fs36 \cf2 Install bootstrap themes
+\b0\fs28 \cf0 \
+rails generate bootstrap:install static\
+rails generate bootstrap:layout application\
+rails generate devise:views:locale en\
+rails generate devise:views:bootstrap_templates\
+\
+In the application.css file under app/assets/stylesheets folder, right above the line that says *= require_tree add in the following line:\
+\
+*= require devise_bootstrap_views\
+}
